@@ -1,6 +1,7 @@
 package com.adeolu.oluwasegun.cryptocurrencyapp.data.remote.dto
 
 
+import com.adeolu.oluwasegun.cryptocurrencyapp.domain.model.CoinDetail
 import com.google.gson.annotations.SerializedName
 
 data class CoinDetialDto(
@@ -36,7 +37,22 @@ data class CoinDetialDto(
     val startedAt: String,
     val symbol: String,
     val tags: List<Tag>,
-    val team: List<Team>,
+    val team: List<TeamMember>,
     val type: String,
     val whitepaper: Whitepaper
 )
+
+fun CoinDetialDto.toCoinDetail(): CoinDetail{
+    return CoinDetail(
+        coinId = id,
+        name = name,
+        description = description,
+        symbol =  symbol,
+        rank = rank,
+        isActive = isActive,
+        tags = tags.map { it.name },
+        team = team
+
+
+    )
+}
