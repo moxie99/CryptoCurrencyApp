@@ -1,9 +1,6 @@
 package com.adeolu.oluwasegun.cryptocurrencyapp.presentation.coin_list
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
@@ -26,6 +23,7 @@ fun CoinListScreen(
 ){
 
     val state = viewModel.state.value
+    Spacer(modifier = Modifier.height(10.dp))
     Box(modifier = Modifier.fillMaxSize()){
         LazyColumn(modifier = Modifier.fillMaxSize()){
             items(state.coins){
